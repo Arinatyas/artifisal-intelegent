@@ -256,9 +256,16 @@ column_names = [
 
 
 
-import joblib
+# import joblib
 
-joblib.dump(rf, 'random_forest_model.pkl')
+# joblib.dump(rf, 'random_forest_model.pkl')
+
+import cloudpickle
+
+# Simpan model menggunakan cloudpickle
+with open('random_forest_model.pkl', 'wb') as f:
+    cloudpickle.dump(rf, f)
+
 # rf_loaded = joblib.load('random_forest_model.pkl')
 
 # import streamlit as st
@@ -309,11 +316,19 @@ joblib.dump(rf, 'random_forest_model.pkl')
 #     if st.button('Kembali ke Halaman Utama'):
 #         st.session_state.page = 'home'
 
+# import numpy as np
+# import streamlit as st
+
+# # ✅ Memuat model Random Forest yang sudah disimpan
+# model = joblib.load('random_forest_model.pkl')
+
+import cloudpickle
 import numpy as np
 import streamlit as st
 
 # ✅ Memuat model Random Forest yang sudah disimpan
-model = joblib.load('random_forest_model.pkl')
+with open('random_forest_model.pkl', 'rb') as f:
+    model = cloudpickle.load(f)
 
 # ✅ Fungsi untuk memprediksi penyakit hati
 def predict_liver_disease(age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
