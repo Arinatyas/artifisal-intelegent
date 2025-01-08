@@ -254,73 +254,11 @@ column_names = [
 # output_df = pd.DataFrame(X_test_with_predictions, columns=column_names)
 # output_df.to_csv('hasil_test.csv', index=False)
 
-
-
-# import joblib
-
-# joblib.dump(rf, 'random_forest_model.pkl')
-
 import cloudpickle
 
 # Simpan model menggunakan cloudpickle
 with open('random_forest_model.pkl', 'wb') as f:
     cloudpickle.dump(rf, f)
-
-# rf_loaded = joblib.load('random_forest_model.pkl')
-
-# import streamlit as st
-
-# # 🔹 Halaman Utama
-# if 'page' not in st.session_state:
-#     st.session_state.page = 'home'
-
-# if st.session_state.page == 'home':
-#     st.title('Selamat Datang di Sistem Prediksi Penyakit Hati')
-#     st.write("""
-#     Sistem ini dirancang untuk membantu Anda memprediksi kemungkinan penyakit hati berdasarkan
-#     data medis yang Anda masukkan. Harap masukkan informasi dengan benar untuk mendapatkan hasil
-#     yang akurat.
-#     """)
-#     if st.button('Mulai Prediksi'):
-#         st.session_state.page = 'predict'
-
-# # 🔹 Halaman Prediksi
-# if st.session_state.page == 'predict':
-#     st.title('Prediksi Penyakit Hati')
-
-#     # 🔹 Inputan dari pengguna
-#     age = st.number_input('Masukkan umur (Age)', min_value=0)
-#     gender = st.radio('Masukkan jenis kelamin (Gender)', [0, 1], format_func=lambda x: 'Perempuan' if x == 0 else 'Laki-laki')
-#     total_bilirubin = st.number_input('Masukkan Total Bilirubin')
-#     direct_bilirubin = st.number_input('Masukkan Direct Bilirubin')
-#     alkaline_phosphotase = st.number_input('Masukkan Alkaline Phosphotase')
-#     alamine_aminotransferase = st.number_input('Masukkan Alamine Aminotransferase')
-#     aspartate_aminotransferase = st.number_input('Masukkan Aspartate Aminotransferase')
-#     total_protiens = st.number_input('Masukkan Total Proteins')
-#     albumin = st.number_input('Masukkan Albumin')
-#     albumin_and_globulin_ratio = st.number_input('Masukkan Albumin and Globulin Ratio')
-
-#     # 🔹 Tombol untuk melakukan prediksi
-#     if st.button('Prediksi'):
-#         # Fungsi prediksi placeholder
-#         def predict_liver_disease(age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
-#                                   alamine_aminotransferase, aspartate_aminotransferase, total_protiens,
-#                                   albumin, albumin_and_globulin_ratio):
-#             return "Tidak Ada Indikasi Penyakit Hati"  # Placeholder result
-
-#         result = predict_liver_disease(age, gender, total_bilirubin, direct_bilirubin, alkaline_phosphotase,
-#                                        alamine_aminotransferase, aspartate_aminotransferase, total_protiens,
-#                                        albumin, albumin_and_globulin_ratio)
-#         st.write(f'*Hasil Prediksi:* {result}')
-
-#     if st.button('Kembali ke Halaman Utama'):
-#         st.session_state.page = 'home'
-
-# import numpy as np
-# import streamlit as st
-
-# # ✅ Memuat model Random Forest yang sudah disimpan
-# model = joblib.load('random_forest_model.pkl')
 
 import cloudpickle
 import numpy as np
